@@ -1,20 +1,19 @@
+import ProductCard from '@/components/ProductCard';
+
 const parts = [
-  { id: "1", name: "Brake Pads", price: "$50" },
-  { id: "2", name: "Engine Oil", price: "$30" },
+  { id: '1', name: 'Brake Pads', price: '$50' },
+  { id: '2', name: 'Engine Oil', price: '$30' },
 ];
 
 export default function PartsPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Car Parts</h1>
-      <ul className="space-y-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {parts.map((part) => (
-          <li key={part.id} className="border p-4 rounded shadow">
-            <h2 className="text-xl font-semibold">{part.name}</h2>
-            <p>{part.price}</p>
-          </li>
+          <ProductCard key={part.id} {...part} type="part" />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
