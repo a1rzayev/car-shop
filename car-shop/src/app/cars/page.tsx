@@ -1,20 +1,18 @@
-const cars = [
-  { id: "1", name: "Toyota Camry", price: "$25,000" },
-  { id: "2", name: "BMW 3 Series", price: "$40,000" },
-];
+// app/cars/page.tsx
+'use client';
+
+import { exampleCars } from '@/lib/exampleCars';
+import ProductCard from '@/components/ProductCard';
 
 export default function CarsPage() {
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Available Cars</h1>
-      <ul className="space-y-2">
-        {cars.map((car) => (
-          <li key={car.id} className="border p-4 rounded shadow">
-            <h2 className="text-xl font-semibold">{car.name}</h2>
-            <p>{car.price}</p>
-          </li>
+      <h1 className="text-2xl font-bold mb-6">Available Cars</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {exampleCars.map((car) => (
+          <ProductCard key={car.id} car={car} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
